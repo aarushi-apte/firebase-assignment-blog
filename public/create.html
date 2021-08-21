@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Blogs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>  
+        <link rel="stylesheet" href="./css/style.css" type="text/css">     
+         
+<style>
+
+</style>
+
+<script type="text/javascript">
+//checking if user is logged in-- to access page
+    initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var currentUser = firebase.auth().currentUser;
+        console.log(currentUser);
+      } 
+
+      else {
+         window.location = 'index.html';
+      }
+    }, function(error) {
+      console.log(error);
+    });   
+  };
+
+  window.addEventListener('load', function() {
+    initApp()
+  });
+console.log('Reached here inside state');
+</script>
+    </head>
+    
+    <body>
+        <nav class="navbar">
+          <a class="navbar-brand" href="blogPage.html">Bloggers.com</a>
+          <div class="navbar-nav">                  
+            <a href="./create.html">New blog</a>    
+            <a href="./blogPage.html" onclick="getData()" >All blogs</a>
+            <a href="./blogPage.html" onclick="userData()">My Blogs</a>
+            <a href="./index.html" onclick="signOut()">Logout</a>
+          </div>
+        </nav>
+
+        <br> <br>
+        <div class="container mt-2">
+          <div class="card">
+              <div class="card-body">
+                  <form id="post-form">
+                      <h4>Write a post..</h4> 
+                      <textarea id="post" class="form-control" cols="30" rows="8">  </textarea> <br>
+                      <input type="file" class="form-control" id="image" accept="images/*" >
+                      <div class="text-center"> <br>
+                      <button type="button" id="uploads" class="btn btn-success" onclick="upload()">Upload</button> 
+                      </div> 
+                      
+                  </form> 
+              </div>
+          </div>
+
+      </div>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDU6_Eb0gaw4l5sM9jMtPhpv97n9_IjtSg",
+    authDomain: "fir-assignment-d8282.firebaseapp.com",
+    projectId: "fir-assignment-d8282",
+    storageBucket: "fir-assignment-d8282.appspot.com",
+    messagingSenderId: "34483543309",
+    appId: "1:34483543309:web:357cf6de3ec8296b80e444",
+    measurementId: "G-TRN03CCQ4X",
+    databaseURL: "https://fir-assignment-d8282-default-rtdb.firebaseio.com/"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+   
+</script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  <script src="./js/blogPage.js"></script>
+        
+</body>
+</html>
