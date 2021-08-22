@@ -119,7 +119,7 @@ function userData(){
             "<div class = 'card'>" +
             "<img src= '"+value.imageURL+"' style='height:200px;'>" +
             "<div class='card-body'><p class='card-text'>" + value.text + "</p>" +
-            "<button class='btn btn-danger' id= '"+key+"' onclick = 'deletePost(this.id)'>Delete</button>"+
+            "<button class='btn btn-danger' id= '"+key+"' onclick = 'delete_post(this.id)'>Delete</button>"+
             "</div></div></div></div>" + posts_div.innerHTML;
         }
    
